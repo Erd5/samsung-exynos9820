@@ -29,23 +29,23 @@ jobs:
       run: git submodule update --init --recursive
     - name: Kernel Configure
       run: |
-        ./build config
-                model=${{ matrix.model}}
-                name=CRUEL-V3.3custom
-                +magisk
-                +nohardening
-                +ttl
-                +wireguard
-                +cifs
-                +sdfat
-                +ntfs
-                +morosound
-                +boeffla_wl_blocker
-                +bfq
-                +sched_performance
-                +tcp_cubic
-                +nodebug
-                +noksm
+        ./build config                   \
+                model=${{ matrix.model}} \
+                name=CRUEL-V3.3custom    \
+                +magisk                  \
+                +nohardening             \
+                +ttl                     \
+                +wireguard               \
+                +cifs                    \
+                +sdfat                   \
+                +ntfs                    \ 
+                +morosound               \   
+                +boeffla_wl_blocker      \
+                +bfq                     \
+                +sched_performance       \
+                +tcp_cubic               \
+                +nodebug                 \
+                +noksm                   \
                 +1000hz
               
     - name: Show information about build
