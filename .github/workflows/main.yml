@@ -30,6 +30,7 @@ jobs:
     - name: Kernel Configure
       run: |
         ./build config                   \
+                os_patch_level=2020-04   \
                 model=${{ matrix.model}} \
                 name=CRUEL-V3.3custom    \
                 +magisk                  \
