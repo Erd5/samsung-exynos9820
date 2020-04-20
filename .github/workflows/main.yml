@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        model: [ "G973F" ]
+        model: [ "G977N" ]
 
     steps:
     - uses: actions/checkout@v1
@@ -29,18 +29,25 @@ jobs:
       run: git submodule update --init --recursive
     - name: Kernel Configure
       run: |
-        ./build config                   \
-                model=${{ matrix.model}} \
-                name=CRUEL-V3.3          \
-                +magisk                  \
-                +nohardening             \
-                +ttl                     \
-                +wireguard               \
-                +cifs                    \
-                +sdfat                   \
-                +ntfs                    \
-                +morosound               \
+        ./build config
+                model=${{ matrix.model}}
+                name=CRUEL-V3.3custom
+                +magisk
+                +nohardening
+                +ttl
+                +wireguard
+                +cifs
+                +sdfat
+                +ntfs
+                +morosound
                 +boeffla_wl_blocker
+                +bfq
+                +sched_...
+                +tcp_cubic
+                +nodebug
+                +noksm
+                +1000hz
+              
     - name: Show information about build
       run: cat build.info
     - name: Kernel Build
